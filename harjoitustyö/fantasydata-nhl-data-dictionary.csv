@@ -1,0 +1,902 @@
+TableID,TableName,Name,DataType,Size,Nullable,Description,IsInCSV,Scrambled
+4001000,Team,TeamID,integer,32,False,The auto-generated unique ID of the Team,True,False
+4001000,Team,[Key],string,10,False,Abbreviation of the team (e.g. LA; PHI; BOS; CHI; etc.),True,False
+4001000,Team,Active,boolean,,False,Whether or not this team is active,True,False
+4001000,Team,City,string,50,True,The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.),True,False
+4001000,Team,Name,string,50,True,The mascot of the team (e.g. Kings; Flyers; Bruins; Blackhawks; etc.),True,False
+4001000,Team,StadiumID,integer,32,True,The unique ID of the team's current home arena,True,False
+4001000,Team,Conference,string,20,True,The conference of the team (possible values: Eastern; Western),True,False
+4001000,Team,Division,string,20,True,The division of the team (e.g. Atlantic; Metropolitan; etc),True,False
+4001000,Team,PrimaryColor,string,6,True,The team's primary color. (This is not licensed for public or commercial use),True,False
+4001000,Team,SecondaryColor,string,6,True,The team's secondary color. (This is not licensed for public or commercial use),True,False
+4001000,Team,TertiaryColor,string,6,True,The team's tertiary color. (This is not licensed for public or commercial use),True,False
+4001000,Team,QuaternaryColor,string,6,True,The team's quaternary color. (This is not licensed for public or commercial use),True,False
+4001000,Team,WikipediaLogoUrl,string,250,True,The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use),True,False
+4001000,Team,WikipediaWordMarkUrl,string,250,True,The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use),True,False
+4001000,Team,GlobalTeamID,integer,32,False,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4002000,Stadium,StadiumID,integer,32,False,The unique ID of the arena,True,False
+4002000,Stadium,Active,boolean,,False,Whether or not this arena is the home venue for an active team,True,False
+4002000,Stadium,Name,string,50,False,The full name of the arena,True,False
+4002000,Stadium,Address,string,50,True,The address where the arena is located,True,False
+4002000,Stadium,City,string,50,True,The city where the arena is located,True,False
+4002000,Stadium,State,string,10,True,The US state where the arena is located (if arena is outside US; this value is NULL),True,False
+4002000,Stadium,Zip,string,10,True,The zip code of the arena,True,False
+4002000,Stadium,Country,string,10,True,The 2-digit country code where the arena is located,True,False
+4002000,Stadium,Capacity,integer,32,True,The estimated seating capacity of the arena,True,False
+4002000,Stadium,GeoLat,decimal,32,True,The geographic latitude coordinate of this venue.,True,False
+4002000,Stadium,GeoLong,decimal,32,True,The geographic longitude coordinate of this venue.,True,False
+4003000,Game,GameID,integer,32,False,The unique ID of this game,True,False
+4003000,Game,Season,integer,32,False,The NHL season of the game,True,False
+4003000,Game,SeasonType,integer,32,False,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4003000,Game,Status,string,20,True,Indicates the game's status. Possible values include: Scheduled; InProgress; Final; F/SO; F/OT; Suspended; Postponed; Delayed; Canceled; Forfeit,True,False
+4003000,Game,Day,date,,True,The date of the game,True,False
+4003000,Game,DateTime,datetime,,True,The date and time of the game,True,False
+4003000,Game,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4003000,Game,IsClosed,boolean,,True,Indicates whether the game is over and the final score has been verified and closed out.,True,False
+4003000,Game,AwayTeam,string,10,False,The abbreviation of the Away Team,True,False
+4003000,Game,HomeTeam,string,10,False,The abbreviation of the Home Team,True,False
+4003000,Game,AwayTeamID,integer,32,False,The unique ID of the away team,True,False
+4003000,Game,HomeTeamID,integer,32,False,The unique ID of the home team,True,False
+4003000,Game,StadiumID,integer,32,True,The unique ID of the stadium,True,False
+4003000,Game,Channel,string,10,True,The television station broadcasting the game,True,False
+4003000,Game,Attendance,integer,32,True,Total number of people who attended the game,True,False
+4003000,Game,AwayTeamScore,integer,32,True,Number of goals the away team scored in this game,True,True
+4003000,Game,HomeTeamScore,integer,32,True,Number of goals the home team scored in this game,True,True
+4003000,Game,Period,string,10,True,Indicated the current period of the game. Possible values include: 1; 2; 3; OT; SO; Final; F/OT; F/SO; NULL,True,False
+4003000,Game,TimeRemainingMinutes,integer,32,True,Number of minutes that have passed in the current period. Please note this field name is misleading; and actually represents the game clock minutes; which are the number of minutes that have already passed in the period. Possible values: 0-20.,True,False
+4003000,Game,TimeRemainingSeconds,integer,32,True,Number of seconds that have passed in the current period. Please note this field name is misleading; and actually represents the game clock seconds; which are the number of seconds that have already passed in the period. Possible values: 0-60.,True,False
+4003000,Game,AwayTeamMoneyLine,integer,32,True,Money line from the perspective of the away team.,True,True
+4003000,Game,HomeTeamMoneyLine,integer,32,True,Money line from the perspective of the home team.,True,True
+4003000,Game,PointSpread,decimal,32,True,The oddsmaker Point Spread at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored). This is updated once daily at 4:00 AM ET.,True,True
+4003000,Game,OverUnder,decimal,32,True,The oddsmaker Over/Under at game start. This is updated once daily at 4:00 AM ET.,True,True
+4003000,Game,GlobalGameID,integer,32,False,A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.,False,False
+4003000,Game,GlobalAwayTeamID,integer,32,False,A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4003000,Game,GlobalHomeTeamID,integer,32,False,A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4003000,Game,PointSpreadAwayTeamMoneyLine,integer,32,True,The money line payout odds when betting on the away team with the point spread. This is updated once daily at 4:00 AM ET.,True,True
+4003000,Game,PointSpreadHomeTeamMoneyLine,integer,32,True,The money line payout odds when betting on the home team with the point spread. This is updated once daily at 4:00 AM ET.,True,True
+4003000,Game,LastPlay,string,250,True,The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.,True,False
+4003000,Game,Periods,Period[],,True,The details of the periods (including overtime if applicable) for this game.,True,False
+4003000,Game,GameEndDateTime,datetime,,True,The date and time that the game ended in US Eastern Time,True,False
+4003000,Game,HomeRotationNumber,integer,32,True,The rotation number of the home team for this game,True,True
+4003000,Game,AwayRotationNumber,integer,32,True,The rotation number of the away team for this game,True,True
+4003000,Game,NeutralVenue,boolean,,True,Indicates whether this game is played in a neutral venue,True,False
+4003000,Game,OverPayout,integer,32,True,The payout when betting the Over of the Over/Under,True,True
+4003000,Game,UnderPayout,integer,32,True,The payout when betting the Under of the Over/Under,True,True
+4004000,Period,PeriodID,integer,32,False,Unique identifier for each period.,True,False
+4004000,Period,GameID,integer,32,False,The unique ID for this game.,True,False
+4004000,Period,Name,string,10,False,The Name of the Quarter (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc),True,False
+4004000,Period,AwayScore,integer,32,True,The total goals scored by the away team in this period.,True,True
+4004000,Period,HomeScore,integer,32,True,The total goals scored by the home team in this period.,True,True
+4004000,Period,ScoringPlays,ScoringPlay[],,True,The details of the scoring plays that occurred during this period,True,False
+4004000,Period,Penalties,Penalty[],,True,The details of the penalties that occurred during this period,True,False
+4005000,Player,PlayerID,integer,32,False,The player's unique PlayerID as assigned by FantasyData.,True,False
+4005000,Player,FirstName,string,50,True,The first name of the player.,True,False
+4005000,Player,LastName,string,50,True,The last name of the player.,True,False
+4005000,Player,Status,string,10,True,Indicates the player's status of being on an active roster. Possible values include: Active; Inactive,True,False
+4005000,Player,TeamID,integer,32,True,The TeamID of the team this player is employed by.,True,False
+4005000,Player,Team,string,10,True,The key/abbreviation of the team this player is employed by.,True,False
+4005000,Player,Position,string,10,True,The player's primary position. Possible values: C; RW; LW; D; or G.,True,False
+4005000,Player,Jersey,integer,32,True,The player's jersey number.,True,False
+4005000,Player,Catches,string,1,True,The hand in which the player catches the puck (right or left).,True,False
+4005000,Player,Shoots,string,1,True,The hand the player shoots the puck with (right or left).,True,False
+4005000,Player,Height,integer,32,True,The player's height in inches.,True,False
+4005000,Player,Weight,integer,32,True,The player's weight in pounds (lbs).,True,False
+4005000,Player,BirthDate,datetime,,True,The player's date of birth.,True,False
+4005000,Player,BirthCity,string,50,True,The city in which the player was born.,True,False
+4005000,Player,BirthState,string,50,True,The state in which the player was born.,True,False
+4005000,Player,PhotoUrl,string,250,True,The URL of the player's headshot photo.,True,False
+4005000,Player,SportRadarPlayerID,string,50,True,The player's cross reference PlayerID to the SportRadar API.,True,False
+4005000,Player,RotoworldPlayerID,integer,32,True,The player's cross reference PlayerID to the Rotoworld news feed.,True,False
+4005000,Player,RotoWirePlayerID,integer,32,True,The player's cross reference PlayerID to the RotoWire news feed.,True,False
+4005000,Player,FantasyAlarmPlayerID,integer,32,True,The player's cross reference PlayerID to the FantasyAlarm news feed.,True,False
+4005000,Player,StatsPlayerID,integer,32,True,The player's cross reference PlayerID to the STATS data feeds.,True,False
+4005000,Player,SportsDirectPlayerID,integer,32,True,The player's cross reference PlayerID to the SportsDirect data feeds.,True,False
+4005000,Player,XmlTeamPlayerID,integer,32,True,The player's cross reference PlayerID to the XML Team data feeds.,True,False
+4005000,Player,InjuryStatus,string,50,True,Indicates the player's injury status. Possible values include: Probable; Questionable; Doubtful; Out,True,True
+4005000,Player,InjuryBodyPart,string,50,True,The body part that is injured (Knee; Groin; Calf; Hamstring; etc.),True,True
+4005000,Player,InjuryStartDate,date,,True,The day that the injury started or first discovered.,True,False
+4005000,Player,InjuryNotes,string,250,True,Brief description of the player's injury and expected availability.,True,True
+4005000,Player,FanDuelPlayerID,integer,32,True,The player's cross reference PlayerID to FanDuel.,True,False
+4005000,Player,DraftKingsPlayerID,integer,32,True,The player's cross reference PlayerID to DraftKings.,True,False
+4005000,Player,YahooPlayerID,integer,32,True,The player's cross reference PlayerID to Yahoo Daily Fantasy Sports Contests.,True,False
+4005000,Player,FanDuelName,string,50,True,The player's full name in FanDuel's daily fantasy sports platform.,True,False
+4005000,Player,DraftKingsName,string,50,True,The player's full name in DraftKings' daily fantasy sports platform.,True,False
+4005000,Player,YahooName,string,50,True,The player's full name in Yahoo's daily fantasy sports platform.,True,False
+4005000,Player,DepthChartPosition,string,10,True,The position of the player on the depth chart.,True,False
+4005000,Player,DepthChartOrder,integer,32,True,The order of the player on the depth chart.,True,True
+4005000,Player,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4005000,Player,FantasyDraftName,string,50,True,The player's full name in FantasyDraft's daily fantasy sports platform.,True,False
+4005000,Player,FantasyDraftPlayerID,integer,32,True,The player's cross reference PlayerID to Fantasy Draft.,True,False
+4005000,Player,UsaTodayPlayerID,integer,32,True,The player's cross reference PlayerID to USA Today headshot data feeds.,True,False
+4005000,Player,UsaTodayHeadshotUrl,string,100,True,The player's headshot URL as provided by USA Today. License from USA Today is required.,True,False
+4005000,Player,UsaTodayHeadshotNoBackgroundUrl,string,100,True,The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.,True,False
+4005000,Player,UsaTodayHeadshotUpdated,datetime,,True,The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.,True,False
+4005000,Player,UsaTodayHeadshotNoBackgroundUpdated,datetime,,True,The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.,True,False
+4008000,PlayerGame,StatID,integer,32,False,The unique ID of the stat,True,False
+4008000,PlayerGame,TeamID,integer,32,True,The unique ID of the team,True,False
+4008000,PlayerGame,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4008000,PlayerGame,SeasonType,integer,32,True,The season type of the timeframe (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star),True,False
+4008000,PlayerGame,Season,integer,32,True,The NHL season of the game,True,False
+4008000,PlayerGame,Name,string,50,True,Player's name,True,False
+4008000,PlayerGame,Team,string,10,True,The abbreviation of the Team,True,False
+4008000,PlayerGame,Position,string,10,True,The player's position associated with the given game or season. Possible values: C; RW; LW; D; G,True,False
+4008000,PlayerGame,FantasyDataSalary,integer,32,True,The player's salary as calculated by FantasyData.  Based on the same salary cap as DraftKings contests ($50;000).,True,True
+4008000,PlayerGame,FanDuelSalary,integer,32,True,The player's salary for FanDuel daily fantasy contests.,True,True
+4008000,PlayerGame,DraftKingsSalary,integer,32,True,The player's salary for DraftKings daily fantasy contests.,True,True
+4008000,PlayerGame,YahooSalary,integer,32,True,The player's salary for Yahoo daily fantasy contests.,True,True
+4008000,PlayerGame,InjuryStatus,string,50,True,Indicates the player's injury status. Possible values include: Probable; Questionable; Doubtful; Out,True,True
+4008000,PlayerGame,InjuryBodyPart,string,50,True,The body part that is injured (Knee; Groin; Calf; Hamstring; etc.),True,True
+4008000,PlayerGame,InjuryStartDate,date,,True,The day that the injury started or first discovered.,True,False
+4008000,PlayerGame,InjuryNotes,string,250,True,Brief description of the player's injury and expected availability.,True,True
+4008000,PlayerGame,FanDuelPosition,string,10,True,The player's eligible position in FanDuel's daily fantasy sports platform.,True,False
+4008000,PlayerGame,DraftKingsPosition,string,10,True,The player's eligible position in DraftKings' daily fantasy sports platform.,True,False
+4008000,PlayerGame,YahooPosition,string,10,True,The player's eligible position in Yahoo's daily fantasy sports platform.,True,False
+4008000,PlayerGame,OpponentRank,integer,32,True,The ranking of the player's opponent with regards to fantasy points allowed.,True,True
+4008000,PlayerGame,OpponentPositionRank,integer,32,True,The ranking of the player's opponent by position with regards to fantasy points allowed.,True,True
+4008000,PlayerGame,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4008000,PlayerGame,FantasyDraftSalary,integer,32,True,The player's salary for Fantasy Draft daily fantasy contests.,True,True
+4008000,PlayerGame,FantasyDraftPosition,string,10,True,The player's eligible position in Fantasy Drafts daily fantasy sports platform.,True,True
+4008000,PlayerGame,GameID,integer,32,True,The unique ID of this game,True,False
+4008000,PlayerGame,OpponentID,integer,32,True,The unique ID of the team's opponent,True,False
+4008000,PlayerGame,Opponent,string,10,True,The name of the opponent ,True,False
+4008000,PlayerGame,Day,date,,True,The day of the game,True,False
+4008000,PlayerGame,DateTime,datetime,,True,The date and time of the game,True,False
+4008000,PlayerGame,HomeOrAway,string,4,True,Whether the team is home or away,True,False
+4008000,PlayerGame,IsGameOver,boolean,,False,Whether the game is over (true/false),True,False
+4008000,PlayerGame,GlobalGameID,integer,32,True,A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.,False,False
+4008000,PlayerGame,GlobalOpponentID,integer,32,True,A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.,True,False
+4008000,PlayerGame,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4008000,PlayerGame,Games,integer,32,True,The number of games played.,True,False
+4008000,PlayerGame,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4008000,PlayerGame,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4008000,PlayerGame,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4008000,PlayerGame,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4008000,PlayerGame,Minutes,integer,32,True,Total number of minutes played,True,True
+4008000,PlayerGame,Seconds,integer,32,True,Total number of seconds played,True,True
+4008000,PlayerGame,Goals,decimal,32,True,Total number of goals scored,True,True
+4008000,PlayerGame,Assists,decimal,32,True,Total number of assists,True,True
+4008000,PlayerGame,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4008000,PlayerGame,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4008000,PlayerGame,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4008000,PlayerGame,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4008000,PlayerGame,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4008000,PlayerGame,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4008000,PlayerGame,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4008000,PlayerGame,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4008000,PlayerGame,PlusMinus,decimal,32,True,Total plus minus,True,True
+4008000,PlayerGame,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4008000,PlayerGame,Blocks,decimal,32,True,Total blocked shots,True,True
+4008000,PlayerGame,Hits,decimal,32,True,Total hits,True,True
+4008000,PlayerGame,Takeaways,decimal,32,True,Total takeaways,True,True
+4008000,PlayerGame,Giveaways,decimal,32,True,Total giveaways,True,True
+4008000,PlayerGame,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4008000,PlayerGame,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4008000,PlayerGame,Shifts,decimal,32,True,Total shifts,True,True
+4008000,PlayerGame,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4008000,PlayerGame,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4008000,PlayerGame,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4008000,PlayerGame,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4008000,PlayerGame,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4008000,PlayerGame,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4008000,PlayerGame,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4008000,PlayerGame,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4008000,PlayerGame,Started,integer,32,True,Total games started,True,False
+4008000,PlayerGame,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4008000,PlayerGame,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4008000,PlayerGame,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4009000,TeamGame,StatID,integer,32,False,The unique ID of the stat,True,False
+4009000,TeamGame,TeamID,integer,32,True,The unique ID of the team,True,False
+4009000,TeamGame,SeasonType,integer,32,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4009000,TeamGame,Season,integer,32,True,The NHL season of the game,True,False
+4009000,TeamGame,Name,string,50,True,Team's name,True,False
+4009000,TeamGame,Team,string,10,True,The abbreviation of the Team,True,False
+4009000,TeamGame,Wins,integer,10,True,Total number of team wins,True,False
+4009000,TeamGame,Losses,integer,10,True,Total number of team losses,True,False
+4009000,TeamGame,OvertimeLosses,integer,10,True,Total number of overtime losses,True,False
+4009000,TeamGame,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4009000,TeamGame,GameID,integer,32,True,The unique ID of this game,True,False
+4009000,TeamGame,OpponentID,integer,32,True,The unique ID of the team's opponent,True,False
+4009000,TeamGame,Opponent,string,10,True,The name of the opponent ,True,False
+4009000,TeamGame,Day,date,,True,The day of the game,True,False
+4009000,TeamGame,DateTime,datetime,,True,The date and time of the game,True,False
+4009000,TeamGame,HomeOrAway,string,4,True,Whether the team is home or away,True,False
+4009000,TeamGame,IsGameOver,boolean,,False,Whether the game is over (true/false),True,False
+4009000,TeamGame,GlobalGameID,integer,32,True,A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.,False,False
+4009000,TeamGame,GlobalOpponentID,integer,32,True,A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.,True,False
+4009000,TeamGame,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4009000,TeamGame,Games,integer,32,True,The number of games played.,True,False
+4009000,TeamGame,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4009000,TeamGame,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4009000,TeamGame,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4009000,TeamGame,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4009000,TeamGame,Minutes,integer,32,True,Total number of minutes played,True,True
+4009000,TeamGame,Seconds,integer,32,True,Total number of seconds played,True,True
+4009000,TeamGame,Goals,decimal,32,True,Total number of goals scored,True,True
+4009000,TeamGame,Assists,decimal,32,True,Total number of assists,True,True
+4009000,TeamGame,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4009000,TeamGame,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4009000,TeamGame,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4009000,TeamGame,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4009000,TeamGame,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4009000,TeamGame,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4009000,TeamGame,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4009000,TeamGame,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4009000,TeamGame,PlusMinus,decimal,32,True,Total plus minus,True,True
+4009000,TeamGame,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4009000,TeamGame,Blocks,decimal,32,True,Total blocked shots,True,True
+4009000,TeamGame,Hits,decimal,32,True,Total hits,True,True
+4009000,TeamGame,Takeaways,decimal,32,True,Total takeaways,True,True
+4009000,TeamGame,Giveaways,decimal,32,True,Total giveaways,True,True
+4009000,TeamGame,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4009000,TeamGame,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4009000,TeamGame,Shifts,decimal,32,True,Total shifts,True,True
+4009000,TeamGame,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4009000,TeamGame,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4009000,TeamGame,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4009000,TeamGame,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4009000,TeamGame,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4009000,TeamGame,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4009000,TeamGame,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4009000,TeamGame,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4009000,TeamGame,Started,integer,32,True,Total games started,True,False
+4009000,TeamGame,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4009000,TeamGame,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4009000,TeamGame,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4010000,PlayerSeason,StatID,integer,32,False,The unique ID of the stat,True,False
+4010000,PlayerSeason,TeamID,integer,32,True,The unique ID of the player's team,True,False
+4010000,PlayerSeason,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4010000,PlayerSeason,SeasonType,integer,32,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4010000,PlayerSeason,Season,integer,32,True,The NHL regular season for which these totals apply,True,False
+4010000,PlayerSeason,Name,string,50,True,Player's name,True,False
+4010000,PlayerSeason,Team,string,10,True,The abbreviation of the Team,True,False
+4010000,PlayerSeason,Position,string,10,True,Player's position in the starting lineup (if started); otherwise the position he substituted for,True,False
+4010000,PlayerSeason,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4010000,PlayerSeason,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4010000,PlayerSeason,Games,integer,32,True,The number of games played.,True,False
+4010000,PlayerSeason,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4010000,PlayerSeason,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4010000,PlayerSeason,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4010000,PlayerSeason,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4010000,PlayerSeason,Minutes,integer,32,True,Total number of minutes played,True,True
+4010000,PlayerSeason,Seconds,integer,32,True,Total number of seconds played,True,True
+4010000,PlayerSeason,Goals,decimal,32,True,Total number of goals scored,True,True
+4010000,PlayerSeason,Assists,decimal,32,True,Total number of assists,True,True
+4010000,PlayerSeason,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4010000,PlayerSeason,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4010000,PlayerSeason,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4010000,PlayerSeason,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4010000,PlayerSeason,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4010000,PlayerSeason,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4010000,PlayerSeason,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4010000,PlayerSeason,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4010000,PlayerSeason,PlusMinus,decimal,32,True,Total plus minus,True,True
+4010000,PlayerSeason,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4010000,PlayerSeason,Blocks,decimal,32,True,Total blocked shots,True,True
+4010000,PlayerSeason,Hits,decimal,32,True,Total hits,True,True
+4010000,PlayerSeason,Takeaways,decimal,32,True,Total takeaways,True,True
+4010000,PlayerSeason,Giveaways,decimal,32,True,Total giveaways,True,True
+4010000,PlayerSeason,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4010000,PlayerSeason,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4010000,PlayerSeason,Shifts,decimal,32,True,Total shifts,True,True
+4010000,PlayerSeason,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4010000,PlayerSeason,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4010000,PlayerSeason,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4010000,PlayerSeason,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4010000,PlayerSeason,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4010000,PlayerSeason,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4010000,PlayerSeason,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4010000,PlayerSeason,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4010000,PlayerSeason,Started,integer,32,True,Total games started,True,False
+4010000,PlayerSeason,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4010000,PlayerSeason,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4010000,PlayerSeason,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4011000,TeamSeason,StatID,integer,32,False,The unique ID of the stat,True,False
+4011000,TeamSeason,TeamID,integer,32,True,The unique ID of the team,True,False
+4011000,TeamSeason,SeasonType,integer,32,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4011000,TeamSeason,Season,integer,32,True,The NHL regular season for which these totals apply,True,False
+4011000,TeamSeason,Name,string,50,True,Team name,True,False
+4011000,TeamSeason,Team,string,10,True,The abbreviation of the Team,True,False
+4011000,TeamSeason,Wins,integer,10,True,Total number of wins,True,False
+4011000,TeamSeason,Losses,integer,10,True,Total number of losses,True,False
+4011000,TeamSeason,OvertimeLosses,integer,10,True,Total number of overtime losses,True,False
+4011000,TeamSeason,OpponentPosition,string,10,True,Indicates which position is included in opponent stats that are aggregated together,True,False
+4011000,TeamSeason,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4011000,TeamSeason,OpponentStat,OpponentSeason,,True,The aggregated season stats for this team's opponents,True,False
+4011000,TeamSeason,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4011000,TeamSeason,Games,integer,32,True,The number of games played.,True,False
+4011000,TeamSeason,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4011000,TeamSeason,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4011000,TeamSeason,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4011000,TeamSeason,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4011000,TeamSeason,Minutes,integer,32,True,Total number of minutes played,True,True
+4011000,TeamSeason,Seconds,integer,32,True,Total number of seconds played,True,True
+4011000,TeamSeason,Goals,decimal,32,True,Total number of goals scored,True,True
+4011000,TeamSeason,Assists,decimal,32,True,Total number of assists,True,True
+4011000,TeamSeason,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4011000,TeamSeason,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4011000,TeamSeason,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4011000,TeamSeason,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4011000,TeamSeason,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4011000,TeamSeason,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4011000,TeamSeason,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4011000,TeamSeason,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4011000,TeamSeason,PlusMinus,decimal,32,True,Total plus minus,True,True
+4011000,TeamSeason,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4011000,TeamSeason,Blocks,decimal,32,True,Total blocked shots,True,True
+4011000,TeamSeason,Hits,decimal,32,True,Total hits,True,True
+4011000,TeamSeason,Takeaways,decimal,32,True,Total takeaways,True,True
+4011000,TeamSeason,Giveaways,decimal,32,True,Total giveaways,True,True
+4011000,TeamSeason,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4011000,TeamSeason,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4011000,TeamSeason,Shifts,decimal,32,True,Total shifts,True,True
+4011000,TeamSeason,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4011000,TeamSeason,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4011000,TeamSeason,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4011000,TeamSeason,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4011000,TeamSeason,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4011000,TeamSeason,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4011000,TeamSeason,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4011000,TeamSeason,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4011000,TeamSeason,Started,integer,32,True,Total games started,True,False
+4011000,TeamSeason,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4011000,TeamSeason,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4011000,TeamSeason,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4012000,News,NewsID,integer,32,False,Unique ID of news story,True,False
+4012000,News,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4012000,News,TeamID,integer,32,True,The unique ID of the team,True,False
+4012000,News,Team,string,50,True,The abbreviation of the Team,True,False
+4012000,News,Title,string,50,True,The brief title of the news (typically less than 100 characters),True,False
+4012000,News,Content,string,50,True,The full body content of the story,True,False
+4012000,News,Url,string,250,True,The url of the full story,True,False
+4012000,News,Source,string,50,True,The source of the story (FantasyData; RotoBaller; NBCSports.com; etc.),True,False
+4012000,News,TermsOfUse,string,50,True,The terms of use with using this news item; credit must be given to the originator of the story when specified in the terms of use,True,False
+4012000,News,Updated,date,,True,The date the news story was updated,True,False
+4013000,PlayerGameProjection,StatID,integer,32,False,The unique ID of the stat,True,False
+4013000,PlayerGameProjection,TeamID,integer,32,True,The unique ID of the team,True,False
+4013000,PlayerGameProjection,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4013000,PlayerGameProjection,SeasonType,integer,32,True,The season type of the timeframe (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star),True,False
+4013000,PlayerGameProjection,Season,integer,32,True,The NHL season of the game,True,False
+4013000,PlayerGameProjection,Name,string,50,True,Player's name,True,False
+4013000,PlayerGameProjection,Team,string,10,True,The abbreviation of the Team,True,False
+4013000,PlayerGameProjection,Position,string,10,True,The player's position associated with the given game or season. Possible values: C; RW; LW; D; G,True,False
+4013000,PlayerGameProjection,FantasyDataSalary,integer,32,True,The player's salary as calculated by FantasyData.  Based on the same salary cap as DraftKings contests ($50;000).,True,True
+4013000,PlayerGameProjection,FanDuelSalary,integer,32,True,The player's salary for FanDuel daily fantasy contests.,True,True
+4013000,PlayerGameProjection,DraftKingsSalary,integer,32,True,The player's salary for DraftKings daily fantasy contests.,True,True
+4013000,PlayerGameProjection,YahooSalary,integer,32,True,The player's salary for Yahoo daily fantasy contests.,True,True
+4013000,PlayerGameProjection,InjuryStatus,string,50,True,Indicates the player's injury status. Possible values include: Probable; Questionable; Doubtful; Out,True,True
+4013000,PlayerGameProjection,InjuryBodyPart,string,50,True,The body part that is injured (Knee; Groin; Calf; Hamstring; etc.),True,True
+4013000,PlayerGameProjection,InjuryStartDate,date,,True,The day that the injury started or first discovered.,True,False
+4013000,PlayerGameProjection,InjuryNotes,string,250,True,Brief description of the player's injury and expected availability.,True,True
+4013000,PlayerGameProjection,FanDuelPosition,string,10,True,The player's eligible position in FanDuel's daily fantasy sports platform.,True,False
+4013000,PlayerGameProjection,DraftKingsPosition,string,10,True,The player's eligible position in DraftKings' daily fantasy sports platform.,True,False
+4013000,PlayerGameProjection,YahooPosition,string,10,True,The player's eligible position in Yahoo's daily fantasy sports platform.,True,False
+4013000,PlayerGameProjection,OpponentRank,integer,32,True,The ranking of the player's opponent with regards to fantasy points allowed.,True,True
+4013000,PlayerGameProjection,OpponentPositionRank,integer,32,True,The ranking of the player's opponent by position with regards to fantasy points allowed.,True,True
+4013000,PlayerGameProjection,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4013000,PlayerGameProjection,FantasyDraftSalary,integer,32,True,The player's salary for Fantasy Draft daily fantasy contests.,True,True
+4013000,PlayerGameProjection,FantasyDraftPosition,string,10,True,The player's eligible position in Fantasy Drafts daily fantasy sports platform.,True,True
+4013000,PlayerGameProjection,GameID,integer,32,True,The unique ID of this game,True,False
+4013000,PlayerGameProjection,OpponentID,integer,32,True,The unique ID of the team's opponent,True,False
+4013000,PlayerGameProjection,Opponent,string,10,True,The name of the opponent ,True,False
+4013000,PlayerGameProjection,Day,date,,True,The day of the game,True,False
+4013000,PlayerGameProjection,DateTime,datetime,,True,The date and time of the game,True,False
+4013000,PlayerGameProjection,HomeOrAway,string,4,True,Whether the team is home or away,True,False
+4013000,PlayerGameProjection,IsGameOver,boolean,,False,Whether the game is over (true/false),True,False
+4013000,PlayerGameProjection,GlobalGameID,integer,32,True,A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.,False,False
+4013000,PlayerGameProjection,GlobalOpponentID,integer,32,True,A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.,True,False
+4013000,PlayerGameProjection,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4013000,PlayerGameProjection,Games,integer,32,True,The number of games played.,True,False
+4013000,PlayerGameProjection,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4013000,PlayerGameProjection,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4013000,PlayerGameProjection,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4013000,PlayerGameProjection,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4013000,PlayerGameProjection,Minutes,integer,32,True,Total number of minutes played,True,True
+4013000,PlayerGameProjection,Seconds,integer,32,True,Total number of seconds played,True,True
+4013000,PlayerGameProjection,Goals,decimal,32,True,Total number of goals scored,True,True
+4013000,PlayerGameProjection,Assists,decimal,32,True,Total number of assists,True,True
+4013000,PlayerGameProjection,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4013000,PlayerGameProjection,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4013000,PlayerGameProjection,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4013000,PlayerGameProjection,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4013000,PlayerGameProjection,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4013000,PlayerGameProjection,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4013000,PlayerGameProjection,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4013000,PlayerGameProjection,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4013000,PlayerGameProjection,PlusMinus,decimal,32,True,Total plus minus,True,True
+4013000,PlayerGameProjection,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4013000,PlayerGameProjection,Blocks,decimal,32,True,Total blocked shots,True,True
+4013000,PlayerGameProjection,Hits,decimal,32,True,Total hits,True,True
+4013000,PlayerGameProjection,Takeaways,decimal,32,True,Total takeaways,True,True
+4013000,PlayerGameProjection,Giveaways,decimal,32,True,Total giveaways,True,True
+4013000,PlayerGameProjection,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4013000,PlayerGameProjection,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4013000,PlayerGameProjection,Shifts,decimal,32,True,Total shifts,True,True
+4013000,PlayerGameProjection,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4013000,PlayerGameProjection,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4013000,PlayerGameProjection,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4013000,PlayerGameProjection,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4013000,PlayerGameProjection,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4013000,PlayerGameProjection,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4013000,PlayerGameProjection,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4013000,PlayerGameProjection,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4013000,PlayerGameProjection,Started,integer,32,True,Total games started,True,False
+4013000,PlayerGameProjection,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4013000,PlayerGameProjection,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4013000,PlayerGameProjection,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4014000,PlayerSeasonProjection,StatID,integer,32,False,The unique ID of the stat,True,False
+4014000,PlayerSeasonProjection,TeamID,integer,32,True,The unique ID of the player's team,True,False
+4014000,PlayerSeasonProjection,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4014000,PlayerSeasonProjection,SeasonType,integer,32,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4014000,PlayerSeasonProjection,Season,integer,32,True,The NHL regular season for which these totals apply,True,False
+4014000,PlayerSeasonProjection,Name,string,50,True,Player's name,True,False
+4014000,PlayerSeasonProjection,Team,string,10,True,The abbreviation of the Team,True,False
+4014000,PlayerSeasonProjection,Position,string,10,True,Player's position in the starting lineup (if started); otherwise the position he substituted for,True,False
+4014000,PlayerSeasonProjection,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4014000,PlayerSeasonProjection,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4014000,PlayerSeasonProjection,Games,integer,32,True,The number of games played.,True,False
+4014000,PlayerSeasonProjection,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4014000,PlayerSeasonProjection,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4014000,PlayerSeasonProjection,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4014000,PlayerSeasonProjection,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4014000,PlayerSeasonProjection,Minutes,integer,32,True,Total number of minutes played,True,True
+4014000,PlayerSeasonProjection,Seconds,integer,32,True,Total number of seconds played,True,True
+4014000,PlayerSeasonProjection,Goals,decimal,32,True,Total number of goals scored,True,True
+4014000,PlayerSeasonProjection,Assists,decimal,32,True,Total number of assists,True,True
+4014000,PlayerSeasonProjection,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4014000,PlayerSeasonProjection,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4014000,PlayerSeasonProjection,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4014000,PlayerSeasonProjection,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4014000,PlayerSeasonProjection,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4014000,PlayerSeasonProjection,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4014000,PlayerSeasonProjection,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4014000,PlayerSeasonProjection,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4014000,PlayerSeasonProjection,PlusMinus,decimal,32,True,Total plus minus,True,True
+4014000,PlayerSeasonProjection,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4014000,PlayerSeasonProjection,Blocks,decimal,32,True,Total blocked shots,True,True
+4014000,PlayerSeasonProjection,Hits,decimal,32,True,Total hits,True,True
+4014000,PlayerSeasonProjection,Takeaways,decimal,32,True,Total takeaways,True,True
+4014000,PlayerSeasonProjection,Giveaways,decimal,32,True,Total giveaways,True,True
+4014000,PlayerSeasonProjection,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4014000,PlayerSeasonProjection,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4014000,PlayerSeasonProjection,Shifts,decimal,32,True,Total shifts,True,True
+4014000,PlayerSeasonProjection,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4014000,PlayerSeasonProjection,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4014000,PlayerSeasonProjection,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4014000,PlayerSeasonProjection,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4014000,PlayerSeasonProjection,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4014000,PlayerSeasonProjection,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4014000,PlayerSeasonProjection,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4014000,PlayerSeasonProjection,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4014000,PlayerSeasonProjection,Started,integer,32,True,Total games started,True,False
+4014000,PlayerSeasonProjection,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4014000,PlayerSeasonProjection,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4014000,PlayerSeasonProjection,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4015000,Season,Season,integer,32,False,The NHL regular season for which these totals apply,True,False
+4015000,Season,StartYear,integer,32,False,The year in which the season started,True,False
+4015000,Season,EndYear,integer,32,False,The year in which the season ended,True,False
+4015000,Season,Description,string,10,True,The description of the season for display purposes (possible values include: 2017-18; 2018-19; etc),True,False
+4015000,Season,RegularSeasonStartDate,date,,True,The start date of the regular season,True,False
+4015000,Season,PostSeasonStartDate,date,,True,The start date of the postseason,True,False
+4015000,Season,SeasonType,string,10,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4015000,Season,ApiSeason,string,10,True,The string to pass into subsequent API calls in the season parameter,True,False
+4016000,ScoringPlay,ScoringPlayID,integer,32,False,The unique ID of the scoring play,True,False
+4016000,ScoringPlay,PeriodID,integer,32,False,The unique ID of the period,True,False
+4016000,ScoringPlay,Sequence,integer,32,True,The sequence/order that this scoring play happened,True,False
+4016000,ScoringPlay,TimeRemainingMinutes,integer,32,True,Number of minutes that have passed in the current period. Please note this field name is misleading; and actually represents the game clock minutes; which are the number of minutes that have already passed in the period. Possible values: 0-20.,True,False
+4016000,ScoringPlay,TimeRemainingSeconds,integer,32,True,Number of seconds that have passed in the current period. Please note this field name is misleading; and actually represents the game clock seconds; which are the number of seconds that have already passed in the period. Possible values: 0-60.,True,False
+4016000,ScoringPlay,ScoredByTeamID,integer,32,True,The TeamID of the team that scored the goal,True,True
+4016000,ScoringPlay,AllowedByTeamID,integer,32,True,The TeamID of the team that allowe the goal,True,True
+4016000,ScoringPlay,ScoredByPlayerID,integer,32,True,The PlayerID of the player who scored the goal,True,True
+4016000,ScoringPlay,AssistedByPlayerID1,integer,32,True,The PlayerID of the player who assisted on the goal,True,True
+4016000,ScoringPlay,AssistedByPlayerID2,integer,32,True,The PlayerID of the player who assisted on the goal,True,True
+4016000,ScoringPlay,PowerPlay,boolean,,True,Whether the goal was scored on the power play (true/false),True,False
+4016000,ScoringPlay,ShortHanded,boolean,,True,Whether the goal was scored shorthanded (true/false),True,False
+4016000,ScoringPlay,EmptyNet,boolean,,True,Whether the goal was an empty net goal (true/false),True,False
+4016000,ScoringPlay,AwayTeamScore,integer,,True,The away team score after the play ended,True,False
+4016000,ScoringPlay,HomeTeamScore,integer,,True,The home team score after the play ended,True,False
+4017000,Penalty,PenaltyID,integer,32,False,The unique ID of this penalty,True,False
+4017000,Penalty,PeriodID,integer,32,False,The unique ID of the period during which this penalty occurred,True,False
+4017000,Penalty,Sequence,integer,32,True,The sequence/order that this penalty happened,True,False
+4017000,Penalty,TimeRemainingMinutes,integer,32,True,Number of minutes that have passed in the current period. Please note this field name is misleading; and actually represents the game clock minutes; which are the number of minutes that have already passed in the period. Possible values: 0-20.,True,False
+4017000,Penalty,TimeRemainingSeconds,integer,32,True,Number of seconds that have passed in the current period. Please note this field name is misleading; and actually represents the game clock seconds; which are the number of seconds that have already passed in the period. Possible values: 0-60.,True,False
+4017000,Penalty,Description,string,50,True,The description of the penalty,True,True
+4017000,Penalty,PenaltyMinutes,integer,32,True,The number of minutes the penalty lasts,True,False
+4017000,Penalty,PenalizedTeamID,integer,32,True,The TeamID of the penalized team,True,True
+4017000,Penalty,PenalizedPlayerID,integer,32,True,The PlayerID who commited the penalty,True,True
+4017000,Penalty,DrawnByTeamID,integer,32,True,The TeamID of the team who drew the penalty,True,True
+4017000,Penalty,DrawnByPlayerID,integer,32,True,The PlayerID who drew the penalty,True,True
+4017000,Penalty,IsBenchPenalty,boolean,,True,Whether or not the penalty is a bench penalty (true/false),True,False
+4017000,Penalty,BenchPenaltyServedByPlayerID,integer,32,True,The PlayerID of the player who served the bench penalty,True,False
+4018000,Standing,Season,integer,32,False,The NHL regular season for which these totals apply,True,False
+4018000,Standing,SeasonType,integer,32,False,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4018000,Standing,TeamID,Integer,32,False,The unique ID for the team,True,False
+4018000,Standing,Key,string,10,False,Whether or not the team is active,True,False
+4018000,Standing,City,string,50,True,The name of the city,True,False
+4018000,Standing,Name,string,50,True,The full name of the team,True,False
+4018000,Standing,Conference,string,20,True,The conference of the team (Eastern or Western),True,False
+4018000,Standing,Division,string,20,True,The division of the team (e.g. Atlantic; Metropolitan; Central; or Pacific)),True,False
+4018000,Standing,Wins,integer,32,True,Regular season wins,True,False
+4018000,Standing,Losses,integer,32,True,Regular season losses,True,False
+4018000,Standing,OvertimeLosses,integer,32,True,Regular season overtime losses,True,False
+4018000,Standing,Percentage,decimal,32,True,Winning percentage,True,False
+4018000,Standing,ConferenceWins,integer,32,True,Regular season conference wins,True,False
+4018000,Standing,ConferenceLosses,integer,32,True,Regular season conference losses,True,False
+4018000,Standing,DivisionWins,integer,32,True,Regular season division wins,True,False
+4018000,Standing,DivisionLosses,integer,32,True,Regular season division wins,True,False
+4018000,Standing,ShutoutWins,integer,32,True,Regular season shutout wins,True,False
+4018000,Standing,ConferenceRank,integer,32,True,Regular season conference rank,True,False
+4018000,Standing,DivisionRank,integer,32,True,Regular season division rank,True,False
+4018000,Standing,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4019000,TeamLine,TeamID,Integer,32,False,The unique ID for the team,True,False
+4019000,TeamLine,Key,string,10,False,Whether or not the team is active,True,False
+4019000,TeamLine,FullName,string,50,False,The full team name,True,False
+4019000,TeamLine,EvenStrengthLines,PlayerLine[],,True,The even strength lines for this team,True,False
+4019000,TeamLine,PowerPlayLines,PlayerLine[],,True,The power play lines for this team,True,False
+4020000,PlayerLine,LineNumber,integer,32,False,The line the player is on (e.g. 1; 2; 3; or 4),True,True
+4020000,PlayerLine,Position,string,10,False,The position of the player on the line (e.g. C; RW; LW; or D),True,True
+4020000,PlayerLine,PlayerID,integer,32,True,Unique ID assigned to each player that stays with them throughout their career,True,False
+4020000,PlayerLine,Name,string,50,True,The name of the player on the line,True,False
+4020000,PlayerLine,Shoots,string,10,True,The handedness of the player (Possible values: left or right),True,True
+4020000,PlayerLine,LineType,string,10,False,The type of line the player is on (e.g. first; second; third; etc.),True,False
+4021000,DfsSlate,SlateID,integer,32,False,Unique ID of a Slate (assigned by FantasyData).,True,False
+4021000,DfsSlate,Operator,string,20,True,The name of the operator who is running contests for this slate. Possible values: FanDuel; DraftKings; Yahoo; FantasyDraft; etc.,True,False
+4021000,DfsSlate,OperatorSlateID,integer,32,True,Unique ID of a slate (assigned by the operator).,True,False
+4021000,DfsSlate,OperatorName,string,50,True,The name of the slate (assigned by the operator). Possible values: Main; Express; Arcade; Late Night; etc.,True,False
+4021000,DfsSlate,OperatorDay,date,,True,The day (in EST/EDT) that the slate begins (assigned by the operator).,True,False
+4021000,DfsSlate,OperatorStartTime,datetime,,True,The date/time (in EST/EDT) that the slate begins (assigned by the operator).,True,False
+4021000,DfsSlate,NumberOfGames,integer,32,True,The number of actual games that this slate covers.,True,False
+4021000,DfsSlate,IsMultiDaySlate,boolean,,True,Whether this slate uses games that take place on different days.,True,False
+4021000,DfsSlate,RemovedByOperator,boolean,,True,Indicates whether this slate was removed/deleted by the operator.,True,False
+4021000,DfsSlate,OperatorGameType,string,50,True,The game type of the slate. Will often be null as most operators only have one game type.,True,False
+4021000,DfsSlate,DfsSlateGames,DfsSlateGame[],,True,The games that are included in this slate,True,False
+4021000,DfsSlate,DfsSlatePlayers,DfsSlatePlayer[],,True,The players that are included in this slate,True,False
+4021000,DfsSlate,SlateRosterSlots,string[],,True,The positions that need to be filled for this particular slate,True,False
+4021000,DfsSlate,SalaryCap,integer,,True,The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes),True,False
+4022000,DfsSlateGame,SlateGameID,integer,32,False,Unique ID of a SlateGame (assigned by FantasyData).,True,False
+4022000,DfsSlateGame,SlateID,integer,32,False,The SlateID that this SlateGame refers to.,True,False
+4022000,DfsSlateGame,GameID,integer,32,True,The FantasyData GameID that this SlateGame refers to. This points to data in the respective sports' schedule/game/box score feeds.,True,False
+4022000,DfsSlateGame,Game,Game,,True,The details of the Game that this SlateGame refers to.,True,False
+4022000,DfsSlateGame,OperatorGameID,integer,32,True,Unique ID of a SlateGame (assigned by the operator).,True,False
+4022000,DfsSlateGame,RemovedByOperator,boolean,,True,Indicates whether this player was removed/deleted by the operator.,True,True
+4023000,DfsSlatePlayer,SlatePlayerID,integer,32,False,Unique ID of a SlatePlayer (assigned by FantasyData).,True,False
+4023000,DfsSlatePlayer,SlateID,integer,32,False,The SlateID that this SlatePlayer refers to.,True,False
+4023000,DfsSlatePlayer,SlateGameID,integer,32,True,The SlateGameID that this SlatePlayer refers to.,True,False
+4023000,DfsSlatePlayer,PlayerID,integer,32,True,The FantasyData PlayerID that this SlatePlayer refers to. This points to data in the respective sports' player feeds.,True,False
+4023000,DfsSlatePlayer,PlayerGameProjectionStatID,integer,32,True,The FantasyData StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds.,True,False
+4023000,DfsSlatePlayer,OperatorPlayerID,string,25,True,Unique ID of the Player (assigned by the operator).,True,False
+4023000,DfsSlatePlayer,OperatorSlatePlayerID,string,50,True,Unique ID of the SlatePlayer (assigned by the operator).,True,False
+4023000,DfsSlatePlayer,OperatorPlayerName,string,50,True,The player's name (assigned by the operator).,True,False
+4023000,DfsSlatePlayer,OperatorPosition,string,10,True,The player's eligible positions for the contest (assigned by the operator).,True,False
+4023000,DfsSlatePlayer,OperatorSalary,integer,32,True,The player's salary for the contest (assigned by the operator).,True,False
+4023000,DfsSlatePlayer,OperatorRosterSlots,string[],,True,The player's eligible positions to be played in the contest (assigned by the operator). This would include UTIL; etc plays for those that are eligible.,True,False
+4023000,DfsSlatePlayer,RemovedByOperator,boolean,,True,Indicates whether this player was removed/deleted by the operator.,True,True
+4023000,DfsSlatePlayer,Team,string,10,True,The team the player plays for,True,False
+4023000,DfsSlatePlayer,TeamID,integer,32,True,The TeamID of the team the player plays for,True,False
+4024000,Play,PlayID,integer,32,False,The unique identifier of the play.,True,False
+4024000,Play,PeriodID,integer,32,False,The unique identifier of the Period that this play occurred in.,True,False
+4024000,Play,PeriodName,string,10,False,The name of the Period that this play occurred in.,True,False
+4024000,Play,Sequence,integer,32,False,The order in which this play happened over the course of the game.,True,False
+4024000,Play,ClockMinutes,integer,32,True,The number of minutes passed in the Period when this play completed.,True,False
+4024000,Play,ClockSeconds,integer,32,True,The number of seconds passed in the Period when this play completed.,True,False
+4024000,Play,AwayTeamScore,integer,32,True,The score of the away team after this play completed.,True,False
+4024000,Play,HomeTeamScore,integer,32,True,The score of the home team after this play completed.,True,False
+4024000,Play,TeamID,integer,32,True,The TeamID of the team associated with this play.,True,False
+4024000,Play,Team,string,10,True,The Team Key of the team associated with this play.,True,False
+4024000,Play,OpponentID,integer,32,True,The TeamID of the opponent associated with this play.,True,False
+4024000,Play,Opponent,string,10,True,The Team Key of the opponent associated with this play.,True,False
+4024000,Play,Category,string,20,True,The category the play. Possible values: Block; Faceoff; Goal; Hit; Penalty; Period; Shootout; Shot; Stoppage; Turnover,True,True
+4024000,Play,Type,string,20,True,The type of the play. Possible values: AwayTeamTimeout; Block; Boarding; Charging; CheckToTheHead; Clipping; ClosingHandOnThePuck; CrossChecking; DelayOfGame; Elbowing; Faceoff; Fighting; GameMisconduct; Giveaway; Goal; GoalieStopped; HandPass; HighSticking; HighStickOnPuck; Hit; Holding; HoldingTheStick; HomeTeamTimeout; Hooking; Icing; IllegalEquipment; Interference; Kneeing; MinorPenalty; Misconduct; NetOffPost; ObjectsOnIce; Offside; Period; PeriodEnd; PlayerEquipment; PlayerInjury; PowerPlayGoal; PuckFrozen; PuckInBench; PuckInCrowd; PuckInNetting; Referee; RinkRepair; Roughing; ShootoutGoal; ShootoutMiss; ShootoutSave; ShotMissed; ShotOnGoal; Slashing; Stoppage; Takeaway; TooManyMen; Tripping; TvTimeout; Unsportsmanlike; VideoReview,True,True
+4024000,Play,Description,string,250,True,The description of the play (example: Sidney Crosby won faceoff against Nicklas Backstrom),True,True
+4024000,Play,PlayerID,integer,32,True,The PlayerID of the primary player on this play (if any).,True,True
+4024000,Play,Updated,datetime,,True,The database generated timestamp of when this Play was last updated.,True,False
+4024000,Play,Created,datetime,,True,The database generated timestamp of when this Play was first created.,True,False
+4024000,Play,FirstAssistedByPlayerID,integer,32,True,The PlayerID of the player who got the first assist on this play (if any).,True,True
+4024000,Play,SecondAssistedByPlayerID,integer,32,True,The PlayerID of the player who got the second assist on this play (if any).,True,True
+4024000,Play,PowerPlayTeamID,integer,32,True,The TeamID of the team on the power play this play (if any).,True,True
+4024000,Play,PowerPlayTeam,string,10,True,The TeamKey of the team on the power play this play (if any).,True,True
+4024000,Play,OpposingPlayerID,integer,32,True,The PlayerID of the player involved in the play on the opposing team.,True,True
+4025000,PlayByPlay,Game,Game,,True,Game Information.,True,False
+4025000,PlayByPlay,Plays,Play[],,True,List of Plays in the game.,True,False
+4026000,OpponentSeason,StatID,integer,32,False,The unique ID of the stat,True,False
+4026000,OpponentSeason,TeamID,integer,32,True,The unique ID of the team,True,False
+4026000,OpponentSeason,SeasonType,integer,32,True,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4026000,OpponentSeason,Season,integer,32,True,The NHL regular season for which these totals apply,True,False
+4026000,OpponentSeason,Name,string,50,True,Team name,True,False
+4026000,OpponentSeason,Team,string,10,True,The abbreviation of the Team,True,False
+4026000,OpponentSeason,Wins,integer,10,True,Total number of wins,True,False
+4026000,OpponentSeason,Losses,integer,10,True,Total number of losses,True,False
+4026000,OpponentSeason,OvertimeLosses,integer,10,True,Total number of overtime losses,True,False
+4026000,OpponentSeason,OpponentPosition,string,10,True,Indicates which position is included in opponent stats that are aggregated together,True,False
+4026000,OpponentSeason,GlobalTeamID,integer,32,True,A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4026000,OpponentSeason,OpponentStat,OpponentSeason,,True,The aggregated season stats for this team's opponents,True,False
+4026000,OpponentSeason,Updated,datetime,,True,The timestamp of when the record was last updated (US Eastern Time).,True,False
+4026000,OpponentSeason,Games,integer,32,True,The number of games played.,True,False
+4026000,OpponentSeason,FantasyPoints,decimal,32,True,Total fantasy points,True,True
+4026000,OpponentSeason,FantasyPointsFanDuel,decimal,32,True,Total FanDuel daily fantasy points scored,True,True
+4026000,OpponentSeason,FantasyPointsDraftKings,decimal,32,True,Total DraftKings daily fantasy points scored,True,True
+4026000,OpponentSeason,FantasyPointsYahoo,decimal,32,True,Total Yahoo daily fantasy points scored,True,True
+4026000,OpponentSeason,Minutes,integer,32,True,Total number of minutes played,True,True
+4026000,OpponentSeason,Seconds,integer,32,True,Total number of seconds played,True,True
+4026000,OpponentSeason,Goals,decimal,32,True,Total number of goals scored,True,True
+4026000,OpponentSeason,Assists,decimal,32,True,Total number of assists,True,True
+4026000,OpponentSeason,ShotsOnGoal,decimal,32,True,Total number of shots on goal,True,True
+4026000,OpponentSeason,PowerPlayGoals,decimal,32,True,Total number of power play goals,True,True
+4026000,OpponentSeason,ShortHandedGoals,decimal,32,True,Total number of short handed goals,True,True
+4026000,OpponentSeason,EmptyNetGoals,decimal,32,True,Total number of empty net goals,True,True
+4026000,OpponentSeason,PowerPlayAssists,decimal,32,True,Total number of power play assists,True,True
+4026000,OpponentSeason,ShortHandedAssists,decimal,32,True,Total number of short handed assists,True,True
+4026000,OpponentSeason,HatTricks,decimal,32,True,Total number of hat tricks,True,True
+4026000,OpponentSeason,ShootoutGoals,decimal,32,True,Total number of shootout goals,True,True
+4026000,OpponentSeason,PlusMinus,decimal,32,True,Total plus minus,True,True
+4026000,OpponentSeason,PenaltyMinutes,decimal,32,True,Total pentalty minutes,True,True
+4026000,OpponentSeason,Blocks,decimal,32,True,Total blocked shots,True,True
+4026000,OpponentSeason,Hits,decimal,32,True,Total hits,True,True
+4026000,OpponentSeason,Takeaways,decimal,32,True,Total takeaways,True,True
+4026000,OpponentSeason,Giveaways,decimal,32,True,Total giveaways,True,True
+4026000,OpponentSeason,FaceoffsWon,decimal,32,True,Total faceoffs won,True,True
+4026000,OpponentSeason,FaceoffsLost,decimal,32,True,Total faceoffs lost,True,True
+4026000,OpponentSeason,Shifts,decimal,32,True,Total shifts,True,True
+4026000,OpponentSeason,GoaltendingMinutes,integer,32,True,Total goaltending minutes,True,True
+4026000,OpponentSeason,GoaltendingSeconds,integer,32,True,Total goaltending seconds,True,True
+4026000,OpponentSeason,GoaltendingShotsAgainst,decimal,32,True,Total goaltending shots against,True,True
+4026000,OpponentSeason,GoaltendingGoalsAgainst,decimal,32,True,Total goaltending goals against,True,True
+4026000,OpponentSeason,GoaltendingSaves,decimal,32,True,Total goaltending saves,True,True
+4026000,OpponentSeason,GoaltendingWins,decimal,32,True,Total goaltending wins,True,True
+4026000,OpponentSeason,GoaltendingLosses,decimal,32,True,Total goaltendings losses,True,True
+4026000,OpponentSeason,GoaltendingShutouts,decimal,32,True,Total goaltendings shutouts,True,True
+4026000,OpponentSeason,Started,integer,32,True,Total games started,True,False
+4026000,OpponentSeason,BenchPenaltyMinutes,decimal,32,True,Total bench pentalty minutes,True,True
+4026000,OpponentSeason,GoaltendingOvertimeLosses,decimal,32,True,Total goaltending overtime losses,True,True
+4026000,OpponentSeason,FantasyPointsFantasyDraft,decimal,32,True,Total FantasyDraft daily fantasy points scored,True,True
+4027000,BoxScore,Game,Game,,True,The details of the game associated with this box score,True,False
+4027000,BoxScore,Periods,Period[],,True,The details of the periods associated with this box score,True,False
+4027000,BoxScore,TeamGames,TeamGame[],,True,The team game stats associated with this box score,True,False
+4027000,BoxScore,PlayerGames,PlayerGame[],,True,The player game stats associated with this box score,True,False
+4027000,BoxScore,ShootoutPlays,Play[],,True,The details of any shootout plays associated with this box score,True,False
+4028000,GameInfo,GameId,integer,32,False,The unique ID of the game.,True,False
+4028000,GameInfo,Season,integer,32,False,The calendar year of the season during which this game occurs.,True,False
+4028000,GameInfo,SeasonType,integer,32,False,The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4028000,GameInfo,Day,date,,True,The day that the game is scheduled to be played in UTC.,True,False
+4028000,GameInfo,DateTime,datetime,,True,The date/time that the game is scheduled to be played in UTC.,True,False
+4028000,GameInfo,Status,string,20,True,Indicates the game's status. Possible values include: Scheduled; InProgress; Final; F/SO; F/OT; Suspended; Postponed; Delayed; Canceled; Forfeit,True,False
+4028000,GameInfo,AwayTeamId,integer,32,True,The TeamId of the away team.,True,False
+4028000,GameInfo,HomeTeamId,integer,32,True,The TeamId of the home team.,True,False
+4028000,GameInfo,AwayTeamName,string,50,True,The name of the away team.,True,False
+4028000,GameInfo,HomeTeamName,string,50,True,The name of the home team.,True,False
+4028000,GameInfo,GlobalGameId,integer,32,False,A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.,False,False
+4028000,GameInfo,GlobalAwayTeamId,integer,32,True,A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4028000,GameInfo,GlobalHomeTeamId,integer,32,True,A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.,False,False
+4028000,GameInfo,PregameOdds,GameOdd[],,True,List of Pregame GameOdds from different sportsbooks,True,False
+4028000,GameInfo,LiveOdds,GameOdd[],,True,List of Live GameOdds from different sportsbooks,True,False
+4028000,GameInfo,HomeTeamScore,integer,,True,Score of the home team (updated after game ends to allow for resolving bets),True,True
+4028000,GameInfo,AwayTeamScore,integer,,True,Score of the away team (updated after game ends to allow for resolving bets),True,True
+4028000,GameInfo,TotalScore,integer,,True,Total scored points in the game (updated after game ends to allow for resolving bets),True,True
+4028000,GameInfo,HomeRotationNumber,integer,32,True,The rotation number of the home team for this game,True,True
+4028000,GameInfo,AwayRotationNumber,integer,32,True,The rotation number of the away team for this game,True,True
+4028000,GameInfo,AlternateMarketPregameOdds,GameOdd[],,True,List of Alternate Market Pregame GameOdds from different sportsbooks (ex 1st-pd; 2nd-pd; etc),True,False
+4029000,GameOdd,GameOddId,integer,32,False,Unique ID of this odd,True,False
+4029000,GameOdd,Sportsbook,string,25,False,Name of sportsbook,True,True
+4029000,GameOdd,GameId,integer,32,False,The unique ID of the game,True,False
+4029000,GameOdd,Created,datetime,,False,The timestamp of when these odds were first created; based on US Eatern Time (EST/EDT).,True,False
+4029000,GameOdd,Updated,datetime,,False,The timestamp of when these odds were last updated; based on US Eatern Time (EST/EDT). If these are the latest odds for this game; and they have not been updated within the last few minutes; then it indicates that there were problems connecting to the sportsbook.,True,False
+4029000,GameOdd,HomeMoneyLine,integer,32,True,The sportsbook's money line for the home team,True,True
+4029000,GameOdd,AwayMoneyLine,integer,32,True,The sportsbook's money line for the away team,True,True
+4029000,GameOdd,HomePointSpread,decimal,32,True,The sportsbook's point spread for the home team,True,True
+4029000,GameOdd,AwayPointSpread,decimal,32,True,The sportsbook's point spread for the away team,True,True
+4029000,GameOdd,HomePointSpreadPayout,integer,32,True,The sportsbook's point spread payout for the home team,True,True
+4029000,GameOdd,AwayPointSpreadPayout,integer,32,True,The sportsbook's point spread payout for the away team,True,True
+4029000,GameOdd,OverUnder,decimal,32,True,The sportsbook's total points scored over under for the game,True,True
+4029000,GameOdd,OverPayout,integer,32,True,The sportsbook's payout for the over,True,True
+4029000,GameOdd,UnderPayout,integer,32,True,The sportsbook's payout for the under,True,True
+4029000,GameOdd,SportsbookId,integer,32,True,Unique ID of the sportsbook,True,False
+4029000,GameOdd,OddType,string,32,True,The market type of the odd (ex: live; pregame; 1st-pd; etc),True,False
+4029000,GameOdd,SportsbookUrl,string,500,True,The URL for sportsbook event,True,False
+4030000,PlayerProp,PlayerID,integer,32,False,The PlayerID of the player,True,False
+4030000,PlayerProp,GameID,integer,32,False,The GameID of the game,True,False
+4030000,PlayerProp,Name,string,50,False,The full name of the player,True,False
+4030000,PlayerProp,Opponent,string,10,False,The TeamKey of the opponent in the game,True,False
+4030000,PlayerProp,Team,string,10,False,The TeamKey of the player's team in the game,True,False
+4030000,PlayerProp,DateTime,datetime,,False,The start time of the game (to give an idea of when prop should close),True,False
+4030000,PlayerProp,Description,string,50,False,A description of the stat the over/under is referring to (ex: Three Pointers Made),True,False
+4030000,PlayerProp,OverUnder,decimal,32,False,The over under value in question (ex: 1.5),True,True
+4030000,PlayerProp,OverPayout,integer,32,False,The (american styled) payout for a successful over bet.,True,True
+4030000,PlayerProp,UnderPayout,integer,32,False,The (american styled) payout for a successful under bet.,True,True
+4030000,PlayerProp,BetResult,string,50,False,A description of the result (Over; Under; or Push),True,True
+4030000,PlayerProp,StatResult,decimal,32,True,The final total from the game of the stat in question ,True,True
+4031000,Headshot,PlayerID,integer,32,False,Unique ID of the Player (assigned by FantasyData).,True,False
+4031000,Headshot,Name,string,100,True,Name of Player.,True,False
+4031000,Headshot,TeamID,integer,32,True,Unique ID of the Team the player belongs to (assigned by FantasyData).,True,False
+4031000,Headshot,Team,string,10,True,Name of the team the player belongs to.,True,False
+4031000,Headshot,Position,string,10,True,Position player plays.,True,False
+4031000,Headshot,PreferredHostedHeadshotUrl,string,500,True,The player's preferred hosted headshot URL. This returns the headshot with transparent background; if available.,True,False
+4031000,Headshot,PreferredHostedHeadshotUpdated,datetime,,True,The last updated date of the player's preferred hosted headshot.,True,False
+4031000,Headshot,HostedHeadshotWithBackgroundUrl,string,500,True,The player's hosted headshot URL.,True,False
+4031000,Headshot,HostedHeadshotWithBackgroundUpdated,datetime,,True,The last updated date of the player's hosted headshot.,True,False
+4031000,Headshot,HostedHeadshotNoBackgroundUrl,string,500,True,The player's transparent background hosted headshot URL.,True,False
+4031000,Headshot,HostedHeadshotNoBackgroundUpdated,datetime,,True,The last updated date of the player's transparent background hosted headshot.,True,False
+4032000,TeamTrends,Team,string,50,True,Abbreviation of the team (e.g. LA; PHI; BOS; CHI; etc.),True,False
+4032000,TeamTrends,TeamID,integer,32,True,The auto-generated unique ID of the Team,True,False
+4032000,TeamTrends,UpcomingGame,Game,,True,Upcoming game for this team,True,False
+4032000,TeamTrends,TeamGameTrends,TeamGameTrends[],,True,The collection of Game Trends for this team,True,False
+4033000,TeamGameTrends,Scope,string,50,False,The type of Trend (e.g. Last 5 games; Last 10 games; Last 5 home games; etc.),True,False
+4033000,TeamGameTrends,TeamID,integer,32,False,The auto-generated unique ID of the Team,True,False
+4033000,TeamGameTrends,Team,string,50,False,Abbreviation of the Team (e.g. LA; PHI; BOS; CHI; etc.),True,False
+4033000,TeamGameTrends,OpponentID,integer,32,True,The auto-generated unique ID of the Opponent Team,True,False
+4033000,TeamGameTrends,Opponent,string,50,True,Abbreviation of the Opponent Team (e.g. LA; PHI; BOS; CHI; etc.),True,False
+4033000,TeamGameTrends,Wins,integer,32,False,Wins relating to the scope,True,True
+4033000,TeamGameTrends,Losses,integer,32,False,Losses relating to the scope,True,True
+4033000,TeamGameTrends,Ties,integer,32,False,Ties relating to the scope,True,True
+4033000,TeamGameTrends,WinsAgainstTheSpread,integer,32,True,Wins against the spread relating to the scope,True,True
+4033000,TeamGameTrends,LossesAgainstTheSpread,integer,32,True,Losses against the spread relating to the scope,True,True
+4033000,TeamGameTrends,PushesAgainstTheSpread,integer,32,True,Pushes against the spread relating to the scope,True,True
+4033000,TeamGameTrends,Overs,integer,32,True,Amount of times the total score goes over the OverUnder,True,True
+4033000,TeamGameTrends,Unders,integer,32,True,Amount of times the total score goes under the OverUnder,True,True
+4033000,TeamGameTrends,OverUnderPushes,integer,32,True,Amount of times the total score pushes the OverUnder,True,True
+4033000,TeamGameTrends,AverageScore,decimal,32,True,Average score of team,True,True
+4033000,TeamGameTrends,AverageOpponentScore,decimal,32,True,Average score of opponent,True,True
+4034000,MatchupTrends,UpcomingGame,Game,,True,Upcoming game between the team and the opponent,True,False
+4034000,MatchupTrends,TeamTrends,TeamTrends[],,True,The collection of team trends between each team,True,False
+4034000,MatchupTrends,TeamMatchupTrends,TeamGameTrends[],,True,The collection of team game trends against opponent,True,False
+4034000,MatchupTrends,OpponentMatchupTrends,TeamGameTrends[],,True,The collection of opponent game trends against team,True,False
+4034000,MatchupTrends,PreviousGames,Game[],,True,The collection of last 10 game scores between each team,True,False
+4035000,BettingEvent,BettingEventID,int,32,False,The unique identifier for this betting event,True,False
+4035000,BettingEvent,Name,string,32,True,The name of this betting event,True,False
+4035000,BettingEvent,Season,int,32,True,The season of this betting event,True,False
+4035000,BettingEvent,BettingEventTypeID,int,32,False,The identifier of the bet type of this betting event,True,False
+4035000,BettingEvent,BettingEventType,string,32,False,The name of the bet type of this betting event,True,False
+4035000,BettingEvent,StartDate,datetime,,True,The last day for betting on this event,True,False
+4035000,BettingEvent,Created,datetime,,True,The created date of this betting event,True,False
+4035000,BettingEvent,Updated,datetime,,True,The last updated date of this betting event,True,False
+4035000,BettingEvent,GameID,int,32,True,The GameId of the game tied to this event,True,False
+4035000,BettingEvent,GlobalGameID,int,32,True,The GlobalGameId of the game tied to this event,False,False
+4035000,BettingEvent,GameStatus,string,32,True,The status of the game tied to this event,True,True
+4035000,BettingEvent,Quarter,string,32,True,The quarter of the game tied to this event,True,True
+4035000,BettingEvent,AwayTeam,string,32,True,The Away Team Key of the game tied to this event,True,False
+4035000,BettingEvent,HomeTeam,string,32,True,The Home team key of the game tied to this event,True,False
+4035000,BettingEvent,AwayTeamID,int,32,True,The Away team ID of the game tied to this event,True,False
+4035000,BettingEvent,HomeTeamID,int,32,True,The Home team ID of the game tied to this event,True,False
+4035000,BettingEvent,GlobalAwayTeamID,int,32,True,The global away team id of the game tied to this event,False,False
+4035000,BettingEvent,GlobalHomeTeamID,int,32,True,The global home team id of the game tied to this event,False,False
+4035000,BettingEvent,AwayTeamScore,int,32,True,The away team score of the game tied to this event (post-game),True,True
+4035000,BettingEvent,HomeTeamScore,int,32,True,The home team score of the game tied to this event (post-game),True,True
+4035000,BettingEvent,TotalScore,int,32,True,The combined scores of the home and away team of the game tied to this event (post-game),True,True
+4035000,BettingEvent,AwayRotationNumber,int,32,True,The away team rotation number of the game tied to this event,True,False
+4035000,BettingEvent,HomeRotationNumber,int,32,True,The home team rotation number of the game tied to this event,True,False
+4035000,BettingEvent,BettingMarkets,BettingMarket[],32,True,The list of betting markets for this event,True,False
+4036000,BettingMarket,BettingMarketID,int,32,False,The unique identifier of this betting market,True,False
+4036000,BettingMarket,BettingEventID,int,32,False,The unique identifier of the event this betting market exists for,True,False
+4036000,BettingMarket,BettingMarketTypeID,int,32,True,The BettingMarketTypeID of this market,True,False
+4036000,BettingMarket,BettingMarketType,string,32,True,The BettingMarketType of this market,True,False
+4036000,BettingMarket,BettingBetTypeID,int,32,True,The BettingBetTypeID of this market,True,False
+4036000,BettingMarket,BettingBetType,string,32,True,The BettingBetType of this market,True,False
+4036000,BettingMarket,BettingPeriodTypeID,int,32,True,The BettingPeriodTypeID of this market,True,False
+4036000,BettingMarket,BettingPeriodType,string,32,True,The BettingPeriodType of this market,True,False
+4036000,BettingMarket,Name,string,32,True,The generic name of this market,True,False
+4036000,BettingMarket,TeamID,int,32,True,The team id of the team tied to this market (if applicable),True,False
+4036000,BettingMarket,TeamKey,string,32,True,The team key of the team tied to this market (if applicable),True,False
+4036000,BettingMarket,PlayerID,int,32,True,The player id of the player tied to this market (if applicable),True,False
+4036000,BettingMarket,PlayerName,string,32,True,The name of the player tied to this market (if applicable),True,False
+4036000,BettingMarket,Created,datetime,32,True,The created date of this market,True,False
+4036000,BettingMarket,Updated,datetime,32,True,The last updated date of this market,True,False
+4036000,BettingMarket,AvailableSportsbooks,Sportsbook[],32,True,The sportsbooks that have had odds in this market,True,False
+4036000,BettingMarket,AnyBetsAvailable,bool,32,True,Shows if any bets are currently available for betting in this market,True,False
+4036000,BettingMarket,BettingOutcomes,BettingOutcome[],32,True,The list of betting outcomes from each sportsbook in this market,True,False
+4036000,BettingMarket,ConsensusOutcomes,ConsensusOutcome[],32,True,The single set of consesnus outcomes of this market,True,False
+4037000,BettingOutcome,BettingOutcomeID,int,32,True,The unique identifier of this outcome,True,False
+4037000,BettingOutcome,BettingMarketID,int,32,True,The unique identifier of the market this betting outcome exists for,True,False
+4037000,BettingOutcome,SportsBook,Sportsbook,32,True,The sportsbook offering this outcome for betting,True,False
+4037000,BettingOutcome,BettingOutcomeTypeID,int,32,True,The BettingOutcomeTypeID of this outcome,True,False
+4037000,BettingOutcome,BettingOutcomeType,string,32,True,The BettingOutcomeType of this outcome,True,False
+4037000,BettingOutcome,PayoutAmerican,int,32,True,The american odds payout ,True,True
+4037000,BettingOutcome,PayoutDecimal,decimal,32,True,The decimal odds payout,True,True
+4037000,BettingOutcome,Value,decimal,32,True,The number associated with the outcome (spread/total/etc),True,True
+4037000,BettingOutcome,Participant,string,32,True,The name of the participant (typically team or player) associated with the outcome,True,False
+4037000,BettingOutcome,IsAvailable,bool,32,True,Is this outcome available for betting as of last update,True,False
+4037000,BettingOutcome,IsAlternate,bool,32,True,Is this an alternate value or the core value,True,False
+4037000,BettingOutcome,Created,datetime,32,True,The created date of the outcome,True,False
+4037000,BettingOutcome,Updated,datetime,32,True,The last updated date of the outcome,True,False
+4037000,BettingOutcome,Unlisted,datetime,32,True,The datetime the outcome was unlisted (no longer available for bets),True,False
+4037000,BettingOutcome,TeamID,int,32,True,The TeamID of the team assocated with this outcome (where applicable),True,False
+4037000,BettingOutcome,PlayerID,int,32,True,The PlayerID of the player assocated with this outcome (where applicable),True,False
+4037000,BettingOutcome,GlobalTeamID,int,32,True,The GlobalTeamID of the team assocated with this outcome (where applicable),False,False
+4037000,BettingOutcome,SportsbookUrl,string,500,True,The URL for sportsbook event,True,True
+4038000,Sportsbook,SportsbookID,int,32,False,The unique identifier of the sportsbook,True,False
+4038000,Sportsbook,Name,string,32,False,The name of the sportsbooks,True,True
+4039000,ConsensusOutcome,NumberOfSportsbooks,int,32,False,The number of sportsbooks odds that went into creating this consensus outcome,True,True
+4039000,ConsensusOutcome,BettingOutcomeID,int,32,True,The unique identifier of this outcome,True,False
+4039000,ConsensusOutcome,BettingMarketID,int,32,True,The unique identifier of the market this betting outcome exists for,True,False
+4039000,ConsensusOutcome,SportsBook,Sportsbook,32,True,The sportsbook offering this outcome for betting,True,False
+4039000,ConsensusOutcome,BettingOutcomeTypeID,int,32,True,The BettingOutcomeTypeID of this outcome,True,False
+4039000,ConsensusOutcome,BettingOutcomeType,string,32,True,The BettingOutcomeType of this outcome,True,False
+4039000,ConsensusOutcome,PayoutAmerican,int,32,True,The american odds payout ,True,True
+4039000,ConsensusOutcome,PayoutDecimal,decimal,32,True,The decimal odds payout,True,True
+4039000,ConsensusOutcome,Value,decimal,32,True,The number associated with the outcome (spread/total/etc),True,True
+4039000,ConsensusOutcome,Participant,string,32,True,The name of the participant (typically team or player) associated with the outcome,True,False
+4039000,ConsensusOutcome,IsAvailable,bool,32,True,Is this outcome available for betting as of last update,True,False
+4039000,ConsensusOutcome,IsAlternate,bool,32,True,Is this an alternate value or the core value,True,False
+4039000,ConsensusOutcome,Created,datetime,32,True,The created date of the outcome,True,False
+4039000,ConsensusOutcome,Updated,datetime,32,True,The last updated date of the outcome,True,False
+4039000,ConsensusOutcome,Unlisted,datetime,32,True,The datetime the outcome was unlisted (no longer available for bets),True,False
+4039000,ConsensusOutcome,TeamID,int,32,True,The TeamID of the team assocated with this outcome (where applicable),True,False
+4039000,ConsensusOutcome,PlayerID,int,32,True,The PlayerID of the player assocated with this outcome (where applicable),True,False
+4039000,ConsensusOutcome,GlobalTeamID,int,32,True,The GlobalTeamID of the team assocated with this outcome (where applicable),False,False
+4039000,ConsensusOutcome,SportsbookUrl,string,500,True,The URL for sportsbook event,True,True
+4040000,BettingEntityMetadata,RecordId,integer,32,False,The id of the record.  Unique only within the same entity type (i.e. BettingMarketType Ids overlap with BettingBetType Ids),True,False
+4040000,BettingEntityMetadata,Name,string,100,False,A text value for the record (e.g. Moneyline; Player Prop; 3rd Quarter),True,False
+4041000,BettingEntityMetadataCollection,BettingBetTypes,BettingEntityMetadata[],,True,A list of the possible BettingBetTypes (e.g. Moneyline; Spread),True,False
+4041000,BettingEntityMetadataCollection,BettingMarketTypes,BettingEntityMetadata[],,True,A list of the possible BettingMarketTypes (e.g. Game Line; Team Prop),True,False
+4041000,BettingEntityMetadataCollection,BettingPeriodTypes,BettingEntityMetadata[],,True,A list of the possible BettingPeriodTypes (e.g. Full Game; Regulation Time; 1st Half),True,False
+4041000,BettingEntityMetadataCollection,BettingEventTypes,BettingEntityMetadata[],,True,A list of the possible BettingEventTypes (e.g. Game; Future),True,False
+4041000,BettingEntityMetadataCollection,BettingOutcomeTypes,BettingEntityMetadata[],,True,A list of the possible BettingOutcomeTypes (e.g. Home; Over),True,False
+4041000,BettingEntityMetadataCollection,ResultedMarketMetaData,BettingResultingMetadata[],,True,A list of the combinations of MarketType; BetType; & PeriodType which we willl provide automated resulting for,True,False
+4041000,BettingEntityMetadataCollection,BettingResultTypes,BettingEntityMetadata[],,True,A list of the possible BettingResultTypes (e.g. Won; Lost; Push),True,False
+4042000,GameBettingSplit,GameID,integer,32,False,Unique Game ID associated with relevant game.,True,False
+4042000,GameBettingSplit,SeasonType,integer,32,False,Season Type (e.g.  Preseason; Regular Season; Postseason),True,False
+4042000,GameBettingSplit,Season,integer,32,False,End Year of Season (2021-22 would be 2022),True,False
+4042000,GameBettingSplit,Day,datetime,32,True,Day of Game,True,False
+4042000,GameBettingSplit,AwayTeam,string,32,True,Away Team,True,False
+4042000,GameBettingSplit,HomeTeam,string,32,True,Home Team,True,False
+4042000,GameBettingSplit,BettingMarketSplits,BettingMarketSplit[],32,False,The Betting Markets included in this game that have splits,True,False
+4043000,BettingMarketSplit,BettingMarketID,integer,32,False,Unique ID of Betting Market,True,False
+4043000,BettingMarketSplit,BettingEventID,integer,32,False,Unique ID of associated Betting Event,True,False
+4043000,BettingMarketSplit,BettingMarketTypeID,integer,32,False,Market Type ID (e.g. 1 => Game Line),True,False
+4043000,BettingMarketSplit,BettingMarketType,string,100,False,Name of Market Type,True,False
+4043000,BettingMarketSplit,BettingBetTypeID,integer,32,False,Bet Type ID (e.g. 1 => Puck Line),True,False
+4043000,BettingMarketSplit,BettingBetType,string,100,False,Name of Bet Type,True,False
+4043000,BettingMarketSplit,BettingPeriodTypeID,integer,32,False,Betting Period Type ID (e.g. 1 => Full Game),True,False
+4043000,BettingMarketSplit,BettingPeriodType,string,100,False,Name of Betting Period,True,False
+4043000,BettingMarketSplit,TeamID,integer,32,True,ID of associated Team,True,False
+4043000,BettingMarketSplit,TeamKey,string,32,True,Short Team Name,True,False
+4043000,BettingMarketSplit,PlayerID,integer,32,True,ID of associated Team,True,False
+4043000,BettingMarketSplit,PlayerName,string,100,True,Name of Player,True,False
+4043000,BettingMarketSplit,BettingSplits,BettingSplit[],32,False,List of Splits,True,False
+4044000,BettingSplit,BettingMarketSplitID,integer,32,False,Unique ID of this Split instance,True,False
+4044000,BettingSplit,BettingMarketID,integer,32,False,ID of associated Betting Market,True,False
+4044000,BettingSplit,BettingOutcomeTypeID,integer,32,True,ID of associated Betting Outcome Type,True,False
+4044000,BettingSplit,BettingOutcomeType,string,32,True,Name of Betting Outcome Type (e.g. Home; Away; Under; Over),True,False
+4044000,BettingSplit,BetPercentage,integer,32,True,Percent of Bets Placed on this Outcome,True,True
+4044000,BettingSplit,MoneyPercentage,integer,32,True,Percent of Money on this Outcome,True,True
+4044000,BettingSplit,Created,datetime,32,False,When this split was first seen,True,False
+4044000,BettingSplit,LastSeen,datetime,32,False,When this split was last updated,True,False
+4045000,StartingGoaltenders,GameID,integer,32,False,Unique ID of Game,True,False
+4045000,StartingGoaltenders,Season,integer,32,False,End Year of Season,True,False
+4045000,StartingGoaltenders,SeasonType,integer,32,False,The Type of Season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).,True,False
+4045000,StartingGoaltenders,Day,datetime,32,True,Day of Game,True,False
+4045000,StartingGoaltenders,DateTime,datetime,32,True,Date and Time of Game,True,False
+4045000,StartingGoaltenders,Status,string,32,True,Game Status (ex.  Scheduled; Final; Cancelled),True,False
+4045000,StartingGoaltenders,HomeTeamID,integer,32,True,Unique ID of Home Team,True,False
+4045000,StartingGoaltenders,HomeTeam,string,32,True,Name of Home Team,True,False
+4045000,StartingGoaltenders,AwayTeamID,integer,32,True,Unique ID of Away Team,True,False
+4045000,StartingGoaltenders,AwayTeam,string,32,True,Name of Away Team,True,False
+4045000,StartingGoaltenders,HomeGoaltender,Goaltender,32,True,Information on the Home Team Goaltender,True,False
+4045000,StartingGoaltenders,AwayGoaltender,Goaltender,32,True,Information on the Away Team Goaltender,True,False
+4046000,Goaltender,PlayerID,integer,32,False,Unique ID of Player,True,False
+4046000,Goaltender,TeamID,integer,32,False,Unique ID of Team,True,False
+4046000,Goaltender,Team,string,32,False,Name of Team,True,False
+4046000,Goaltender,FirstName,string,32,False,Goaltender First Name,True,False
+4046000,Goaltender,LastName,string,32,False,Goaltender Last Name,True,False
+4046000,Goaltender,Jersey,integer,32,False,Goaltender Jersey Number,True,True
+4046000,Goaltender,Confirmed,bool,32,False,Indicates whether the starting goaltender is projected or confirmed,True,False
+4047000,BettingMarketResult,BettingMarketID,integer,32,False,The unique identifier of this market,True,False
+4047000,BettingMarketResult,BettingMarketTypeID,integer,32,False,The BettingMarketTypeID of this market,True,False
+4047000,BettingMarketResult,BettingMarketType,string,100,False,The BettingMarketType of this market,True,False
+4047000,BettingMarketResult,BettingBetTypeID,integer,32,False,The BettingBetTypeID of this market,True,False
+4047000,BettingMarketResult,BettingBetType,string,100,False,The BettingBetType of this market,True,False
+4047000,BettingMarketResult,BettingPeriodTypeID,integer,32,False,The BettingPeriodTypeID of this market,True,False
+4047000,BettingMarketResult,BettingPeriodType,string,100,False,The BettingPeriodType of this market,True,False
+4047000,BettingMarketResult,Name,string,100,True,The generic name of this market,True,False
+4047000,BettingMarketResult,TeamID,integer,32,True,The team id of the team tied to this market (if applicable),True,False
+4047000,BettingMarketResult,TeamKey,string,10,True,The team key of the team tied to this market (if applicable),True,False
+4047000,BettingMarketResult,PlayerID,integer,32,True,The player id of the player tied to this market (if applicable),True,False
+4047000,BettingMarketResult,PlayerName,string,100,True,The name of the player tied to this market (if applicable),True,False
+4047000,BettingMarketResult,BettingOutcomeResults,BettingOutcomeResult[],,True,The list of outcomes under this market with results,True,False
+4048000,BettingOutcomeResult,BettingOutcomeID,integer,32,False,The unique identifier of the outcome,True,False
+4048000,BettingOutcomeResult,BettingResultTypeID,integer,32,True,The BettingResultType of this outcome,True,True
+4048000,BettingOutcomeResult,BettingResultType,string,100,True,The string identifier of the BettingResultType of this outcome (e.g. Won; Lost; Push; Not Resulted; Incomplete; Void),True,True
+4048000,BettingOutcomeResult,BettingOutcomeTypeID,int,32,True,The BettingOutcomeTypeID of this outcome,True,False
+4048000,BettingOutcomeResult,BettingOutcomeType,string,32,True,The BettingOutcomeType of this outcome,True,False
+4048000,BettingOutcomeResult,BetValue,decimal,32,True,The value that was bet in this outcome (if applicable),True,True
+4048000,BettingOutcomeResult,ActualValue,decimal,32,True,The value that actually occurred in game (if applicable),True,True
+4049000,BettingResultingMetadata,BettingMarketTypeId,integer,32,False,The BettingMarketTypeID of this type of market which we can result,True,False
+4049000,BettingResultingMetadata,BettingBetTypeId,integer,32,False,The BettingBetTypeID of this type of market which we can result,True,False
+4049000,BettingResultingMetadata,BettingPeriodTypeId,integer,32,False,The BettingPeriodTypeID of this type of market which we can result,True,False
